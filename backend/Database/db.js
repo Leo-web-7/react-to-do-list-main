@@ -4,7 +4,7 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "230523",
-    database: "express",
+    database: "todolist",
 });
 
 async function testConnection() {
@@ -19,6 +19,7 @@ async function testConnection() {
 async function query(command, values) {
     try {
         const [value] = await db.query(command, values ??[]);
+        return value
     }   catch (error) {
         console.error(error);
     }
