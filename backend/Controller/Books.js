@@ -12,10 +12,10 @@ export const getBooks = async (req, res) => {
 
 // add data
 
-export const addBook = async (req, res) => {
+export const addBooks = async (req, res) => {
     const { name, author } = req.body;
     try {
-        await query("INSERT INTO books (name, aouthor) VALUES (?, ?)", [
+        await query("INSERT INTO books (nama, author) VALUES (?, ?)", [
             name,
             author,
         ]);
@@ -27,11 +27,11 @@ export const addBook = async (req, res) => {
 
 // update data 
 
-export const updateBook = async (req, res) => {
+export const updateBooks = async (req, res) => {
     const {id} = req.params;
     const {name, author } = req.body;
     try {
-        await query("UPDATE books SET name = ?, author = ? WHERE id_books = ?", [
+        await query("UPDATE books SET nama = ?, author = ? WHERE id_books = ?", [
             name,
             author,
             id,
@@ -45,7 +45,7 @@ export const updateBook = async (req, res) => {
 
 // delete data
 
-export const deleteBook = async (req, res) => {
+export const deleteBooks = async (req, res) => {
     const { id } = req.params;
     try {
         await query("DELETE FROM books WHERE id_books = ?", [id]);
